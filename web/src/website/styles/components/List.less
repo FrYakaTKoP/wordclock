@@ -1,0 +1,44 @@
+  .list {
+    width: 100%;
+    .row {
+      margin-bottom: 1px;
+      padding: 8px;
+      &.entry {
+        background-color: #eeeeee;
+        overflow: hidden;
+        * { 
+          font-size: 16px; 
+        }
+        &:hover {
+          background-color: #e0e0e0;
+          .actions {
+            display: block;
+          }
+        }
+        .info {
+          color: #616161;
+        }
+        .actions {
+          display: none;
+        }
+        &.complete {
+          background-color: #c8e6c9;
+        }
+        &.complete:hover {
+          background-color: #a5d6a7;
+        }
+        .actions {
+          cursor: pointer;
+            text-align: right;
+            line-height:48px;
+            i {
+              font-size: 32px;
+              width: 32px;
+              &.delete {
+                color: red;
+              }
+          }
+        }
+      }
+    }
+  }
