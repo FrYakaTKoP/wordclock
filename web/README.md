@@ -1,12 +1,16 @@
-# rTorrent Web Interface
-Basic rTorrent web interface.
+# WordClock Web Interface
+Web interface for WordClock
 
 Install
 =======
 npm install && npm build
   
-Configure your rTorrent server in config/rtorrent.js
+Configure your server in config/server.js
 
 Run
 ===
-npm run app
+npm run app  
+  
+Development
+===
+npm run dev
