@@ -1,32 +1,15 @@
-module.exports = ClockService = {
+'use strict';
 
-    resource: '/api(:/action)',
+let clockApi = (ctx, http) => {
+    if(!http.data.action || !ctx.clock[http.data.action]) http.reply({ error: 'action not found'});
+    http.reply({
+        'action': http.data.action,
+        'payload': ctx.clock[http.data.action](http.data)
+    });
+};
 
-    GET: function(ctx, http) {
-        this.clockApi(ctx, http)
-    },
-
-    POST: function(ctx, http) {
-        this.clockApi(ctx, http)
-    },
-
-    clockApi: function(ctx, http) {
-        try {
-            http.reply({
-                'action': http.data.action,
-                'payload': ctx.clock[http.data.action](http.data)
-            });
-        } catch (error) {
-            throwError(error, ctx);
-        }
-    },
-
-    throwError: function(error, ctx) {
-        ctx.log.error(error);
-        throw {
-            status: 500,
-            error: error
-        };
-    }
-
+module.exports = {
+    resource: '/api',
+    GET: clockApi.bind(this),
+    POST: clockApi.bind(this)
 };
