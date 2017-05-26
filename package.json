@@ -1,0 +1,25 @@
+{
+  "name": "wordclock",
+  "version": "1.0.0",
+  "description": "wordclock based on WS281 rbg leds, raspberry pi and nodejs",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrYakaTKoP/wordclock.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FrYakaTKoP/wordclock/issues"
+  },
+  "homepage": "https://github.com/FrYakaTKoP/wordclock#readme",
+  "dependencies": {
+    "rpi-ws281x-native": "^0.8.2"
+  }
+}
