@@ -13,9 +13,10 @@ class Events {
         this.wsc.run();
     }
 
-    tick() {
+    tick(time) {
         this.trigger({
-            action: 'tick'
+            action: 'tick',
+            time: time
         });
     }
 

@@ -17,7 +17,7 @@ class WordClock extends AbstractWordClock {
 
     startTicking() {
         return setInterval(() => {
-            this.events.tick();
+            this.events.tick(this.timeSource.getTime());
         }, this.config.updateInterval || 1000);
     }
 

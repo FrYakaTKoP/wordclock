@@ -22,9 +22,8 @@ class AbstractWordClock {
         };
     }
 
-    tick() {
-        let time = this.timeSource.getTime();
-        this.output.render(time);
+    tick(data) {
+        this.output.render(data.time);
     }
 
     handler(msg) {
