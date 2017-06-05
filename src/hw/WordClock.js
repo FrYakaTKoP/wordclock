@@ -13,6 +13,10 @@ class WordClock extends AbstractWordClock {
         this.interval = this.startTicking();
     }
 
+    loremIpsum() {
+        this.output.render("lorem ipsum");
+    }
+
     startTicking() {
         return setInterval(() => {
             this.events.tick(this.timeSource.getTime());

@@ -20,6 +20,12 @@ class Events {
         });
     }
 
+    loremIpsum() {
+        this.trigger({
+            action: 'loremIpsum'
+        });
+    }
+
     trigger(payload) {
         if (!this.wsc.connection && this.wsc.run()) return;
         this.wsc.send(new Message({

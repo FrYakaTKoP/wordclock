@@ -8,9 +8,21 @@ class LedOutput extends Output {
         super(config);
     }
 
-    render(data) {
+    /**
+     * Render led matrix
+     * @param {Array} matrix 
+     */
+    render(matrix) {
+        return console.log(matrix);
+    }
+
+    /**
+     * 
+     * @param {Timestamp} data 
+     */
+    showTime(time) {
         // TODO render time on led matrix
-        return console.log(new Date(data));
+        return this.render(new Date(time));
     }
 
 }

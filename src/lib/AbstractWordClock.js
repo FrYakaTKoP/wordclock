@@ -23,7 +23,7 @@ class AbstractWordClock {
     }
 
     tick(data) {
-        this.output.render(data.time);
+        this.output.showTime(data.time);
     }
 
     handler(msg) {

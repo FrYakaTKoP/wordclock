@@ -6,10 +6,21 @@ class Output {
         this.config = config;
     }
 
-    render(data) {
-        return console.log(data);
+    /**
+     * Render led matrix
+     * @param {Array} matrix 
+     */
+    render(matrix) {
+        return console.log(matrix);
     }
 
+    /**
+     * 
+     * @param {Timestamp} data 
+     */
+    showTime(time) {
+        return this.render(new Date(time));
+    }
 }
 
 module.exports = Output;
