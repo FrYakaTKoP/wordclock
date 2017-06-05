@@ -8,8 +8,8 @@ class AbstractWordClock {
 
     constructor(config) {
         this.config = config || {};
-        this.timeSource = new config.timeSource() || new TimeSource();
-        this.output = new config.output() || new Output();
+        this.timeSource = config.timeSource ? new config.timeSource() : new TimeSource();
+        this.output = config.output ? new config.output() : new Output();
         this.events = new Events({
             subscriptions: this.subscriptions()
         });
