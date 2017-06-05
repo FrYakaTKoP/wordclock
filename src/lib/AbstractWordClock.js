@@ -4,17 +4,22 @@ const TimeSource = require('./TimeSource');
 const Output = require('./Output');
 const Events = require('./Events');
 
-class WordClock {
+class AbstractWordClock {
 
     constructor(config) {
-        this.config = config;
+        this.config = config || {};
         this.timeSource = new config.timeSource() || new TimeSource();
         this.output = new config.output() || new Output();
         this.events = new Events({
-            subscriptions: {
-                clock: this.clockHandler.bind(this)
-            }
+            subscriptions: this.subscriptions()
         });
+        this.interval = this.startTicking();
+    }
+
+    subscriptions() {
+        return {
+            clock: this.handler.bind(this)
+        };
     }
 
     tick() {
@@ -22,11 +27,17 @@ class WordClock {
         this.output.render(time);
     }
 
-    clockHandler(msg) {
+    startTicking() {
+        return setInterval(() => {
+            this.events.tick();
+        }, this.config.updateInterval || 1000);
+    }
+
+    handler(msg) {
         let action = msg.payload ? this[msg.payload.action] : undefined;
         if (action) action.call(this, msg.payload);
     }
 
 }
 
-module.exports = WordClock;
+module.exports = AbstractWordClock;

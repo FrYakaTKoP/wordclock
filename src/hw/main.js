@@ -1,13 +1,6 @@
 'use strict'
-const WordClock = require('../lib/WordClock');
-const RtcTimeSource = require('./RtcTimeSource');
-const LedOutput = require('./LedOutput');
+const WordClock = require('./WordClock');
 
 let clock = new WordClock({
-    timeSource: RtcTimeSource,
-    output: LedOutput
+    updateInterval: 2000
 });
-
-setInterval(() => {
-    clock.events.tick();
-}, 1000);
