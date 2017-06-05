@@ -20,7 +20,7 @@ class Events {
     }
 
     trigger(payload) {
-        if (!this.wsc.connection) return;
+        if (!this.wsc.connection && this.wsc.run()) return;
         this.wsc.send(new Message({
             event: 'broadcast',
             channel: this.channel,
