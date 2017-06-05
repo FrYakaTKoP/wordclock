@@ -9,14 +9,13 @@ class Events {
     constructor(config) {
         this.config = config;
         this.channel = 'clock';
-        this.wsc = new WebSocketClient('ws://localhost:9090', config.subscriptions);
+        this.wsc = new WebSocketClient('ws://localhost:9090', config);
         this.wsc.run();
     }
 
-    tick(data) {
+    tick() {
         this.trigger({
-            action: 'tick',
-            time: data.time
+            action: 'tick'
         });
     }
 

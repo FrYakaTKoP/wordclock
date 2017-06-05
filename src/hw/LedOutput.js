@@ -9,7 +9,8 @@ class LedOutput extends Output {
     }
 
     render(data) {
-        return console.log(data);
+        // TODO render time on led matrix
+        return console.log(new Date(data));
     }
 
 }

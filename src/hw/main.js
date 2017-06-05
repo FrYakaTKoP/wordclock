@@ -4,12 +4,10 @@ const RtcTimeSource = require('./RtcTimeSource');
 const LedOutput = require('./LedOutput');
 
 let clock = new WordClock({
-    timeSource: new RtcTimeSource(),
-    output: new LedOutput()
+    timeSource: RtcTimeSource,
+    output: LedOutput
 });
 
 setInterval(() => {
-    clock.events.tick({
-        time: new Date().getTime()
-    });
+    clock.events.tick();
 }, 1000);

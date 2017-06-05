@@ -9,6 +9,7 @@ class RtcTimeSource extends TimeSource {
     }
 
     getTime() {
+        // TODO get time from real time clock
         return new Date().getTime();
     }
 
