@@ -1,23 +1,25 @@
 "use strict";
 
-const TimePropagationStrategy = require('./TimePropagationStrategy');
+const TimeSource = require('./TimeSource');
+const Output = require('./Output');
+const Events = require('./Events');
 
 class WordClock {
 
     constructor(config) {
         this.config = config;
-    }
-
-    withTimePropagation(timePropagationStrategy) {
-        this.timePropagationStrategy = timePropagationStrategy || new TimePropagationStrategy();
-    }
-
-    getTime() {
-        return new Date().getTime();
+        this.timeSource = config.timeSource || new TimeSource();
+        this.output = config.output || new Output();
+        this.events = config.events || new Events({
+            subscriptions: {
+                tick: this.tick
+            }
+        });
     }
 
     tick() {
-        this.timePropagationStrategy.execute(this.getTime());
+        let time = this.timeSource.getTime();
+        this.output.render(time);
     }
 
 }

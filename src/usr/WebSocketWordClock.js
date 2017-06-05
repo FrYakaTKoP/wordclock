@@ -7,11 +7,6 @@ const WebSocketTimePropagationStrategy = require('./WebSocketTimePropagationStra
 class WebSocketWordClock extends WordClock {
     constructor(config) {
         super(config);
-        this.wsc = new WebSocketClient('ws://localhost:9090/', {
-            subscriptions: {
-                clock: () => {}
-            }
-        }).run();
         this.withTimePropagation(new WebSocketTimePropagationStrategy(this.wsc));
     }
 }
