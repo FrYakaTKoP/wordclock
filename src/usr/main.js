@@ -1,1 +1,1 @@
-console.log('run usr');
+'use strict'
