@@ -21,6 +21,7 @@
     },
     "homepage": "https://github.com/FrYakaTKoP/wordclock#readme",
     "dependencies": {
-        "rpi-ws281x-native": "^0.8.2"
+        "rpi-ws281x-native": "^0.8.2",
+        "slimple-ws": "^1.0.5"
     }
 }
