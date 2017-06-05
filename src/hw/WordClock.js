@@ -12,6 +12,13 @@ class WordClock extends AbstractWordClock {
             output: LedOutput,
             updateInterval: config.updateInterval
         });
+        this.interval = this.startTicking();
+    }
+
+    startTicking() {
+        return setInterval(() => {
+            this.events.tick();
+        }, this.config.updateInterval || 1000);
     }
 
 }

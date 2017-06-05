@@ -13,7 +13,7 @@ class AbstractWordClock {
         this.events = new Events({
             subscriptions: this.subscriptions()
         });
-        this.interval = this.startTicking();
+
     }
 
     subscriptions() {
@@ -25,12 +25,6 @@ class AbstractWordClock {
     tick() {
         let time = this.timeSource.getTime();
         this.output.render(time);
-    }
-
-    startTicking() {
-        return setInterval(() => {
-            this.events.tick();
-        }, this.config.updateInterval || 1000);
     }
 
     handler(msg) {
