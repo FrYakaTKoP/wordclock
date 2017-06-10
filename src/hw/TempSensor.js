@@ -7,7 +7,7 @@ class TempSensor {
     constructor() {
         this.isLoaded = sensor.isDriverLoaded();
         console.log('Sensor driver loaded: ' + this.isLoaded);
-        this.listOfDeviceIds = sensor.list();
+        var listOfDeviceIds = sensor.list();
         console.log(listOfDeviceIds);
     }
 
