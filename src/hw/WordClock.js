@@ -23,7 +23,13 @@ class WordClock extends AbstractWordClock {
         this.temperatureUpdateInterval = this.readTemperature();
 
         // handle SIGINT
-        handleSIGINT();
+        //handleSIGINT();
+		process.on('SIGINT', function() {
+            this.output.reset();
+            this.gpio.destroy();
+            process.nextTick(function() { process.exit(0); });
+        });
+        console.log('Press <ctrl>+C to exit.');
     }
 
     loremIpsum() {
@@ -44,12 +50,7 @@ class WordClock extends AbstractWordClock {
 
 
     handleSIGINT() {
-        process.on('SIGINT', function() {
-            this.output.reset();
-            this.gpio.destroy();
-            process.nextTick(function() { process.exit(0); });
-        });
-        console.log('Press <ctrl>+C to exit.');
+
     }
 
 }
