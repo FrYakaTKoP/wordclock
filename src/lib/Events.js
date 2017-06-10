@@ -20,6 +20,13 @@ class Events {
         });
     }
 
+    updateTemperature(temp) {
+        this.trigger({
+            action: 'updateTemperature',
+            temperature: temp
+        });
+    }
+
     loremIpsum() {
         this.trigger({
             action: 'loremIpsum'

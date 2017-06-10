@@ -21,6 +21,10 @@ class Output {
     showTime(time) {
         return this.render(new Date(time));
     }
+
+    updateTemperature(temp) {
+        console.log('temperature updated: ' + temp);
+    }
 }
 
 module.exports = Output;

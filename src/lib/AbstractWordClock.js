@@ -26,6 +26,10 @@ class AbstractWordClock {
         this.output.showTime(data.time);
     }
 
+    updateTemperature(temp) {
+        this.output.showTemperature(temp);
+    }
+
     handler(msg) {
         let action = msg.payload ? this[msg.payload.action] : undefined;
         if (action) action.call(this, msg.payload);

@@ -1,27 +1,29 @@
 {
-    "name": "wordclock",
-    "version": "1.0.0",
-    "description": "wordclock based on WS281 rbg leds, raspberry pi and nodejs",
-    "main": "index.js",
-    "directories": {
-        "doc": "docs"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "node src/broker/main.js && node src/hw/main.js && node src/usr/main.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/FrYakaTKoP/wordclock.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/FrYakaTKoP/wordclock/issues"
-    },
-    "homepage": "https://github.com/FrYakaTKoP/wordclock#readme",
-    "dependencies": {
-        "rpi-ws281x-native": "^0.8.2",
-        "slimple-ws": "^1.0.5"
-    }
+  "name": "wordclock",
+  "version": "1.0.0",
+  "description": "wordclock based on WS281 rbg leds, raspberry pi and nodejs",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node src/broker/main.js && node src/hw/main.js && node src/usr/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrYakaTKoP/wordclock.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FrYakaTKoP/wordclock/issues"
+  },
+  "homepage": "https://github.com/FrYakaTKoP/wordclock#readme",
+  "dependencies": {
+    "ds18x20": "^0.2.0",
+    "rpi-gpio": "^0.8.1",
+    "rpi-ws281x-native": "^0.8.2",
+    "slimple-ws": "^1.0.5"
+  }
 }
